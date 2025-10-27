@@ -202,6 +202,17 @@ def start_game_direct(game_name, assistant_instance):
         print(f"Error playing game: {e}")
         return False
 
+@app.route('/')
+def home():
+    return jsonify({
+        'status': 'Jarvis Games API is live 🚀',
+        'available_endpoints': [
+            '/health',
+            '/games/list',
+            '/games/play/<game_name>'
+        ]
+    })
+
 
 if __name__ == '__main__':
     print("=" * 70)
